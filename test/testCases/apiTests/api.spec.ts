@@ -1,6 +1,6 @@
 import { test, expect, request } from '@playwright/test';
 
-test('task 5', async ( { request } ) => {
+test('task 5 - Api handling', async ( { request } ) => {
   const host = 'https://jsonplaceholder.typicode.com';
   const endpoint = 'users';
   const response = await request.get(`${host}/${endpoint}`);

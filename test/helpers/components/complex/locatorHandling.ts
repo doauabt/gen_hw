@@ -6,12 +6,16 @@ export class LocatorHandling {
   readonly iframeLocator;
   readonly dropdownLocator;
   readonly dropdownSelenium;
+  readonly selenuimHeader;
+  readonly redButton;
 
   constructor(protected readonly page: Page) {
     const complexPage = new ComplexPage(page);
     this.iframeLocator = complexPage.getIframeLocatorImg();
     this.dropdownLocator = complexPage.getDropdownLocator();
     this.dropdownSelenium = complexPage.getDropdownSeleniumLocator();
+    this.selenuimHeader = complexPage.getSeleniumHeaderLocator();
+    this.redButton = complexPage.getRedButtonLocator();
   }
   
   async openAdImage() {
@@ -36,7 +40,8 @@ export class LocatorHandling {
     await this.dropdownSelenium.click();
   }
 
-  async expectButtonWithTextAndStyle(text: string, style: string) {
-    // await expect(this.page.locator('button[type="submit"]')).toBeVisible();  }
-    await expect(this.page.locator('//button[.//[text()="Submit"]]')).toBeVisible();  }
+  async expectButtonWithTextAndStyle() {
+    await this.selenuimHeader.click();
+    await expect(this.redButton).toBeVisible();
+  }
 }

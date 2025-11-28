@@ -15,10 +15,9 @@ test.describe('Complex UI tests', () => {
       await complexPage.openPage();
   });
 
-  test('task 4', async ({ page, context }) => {
+  test('task 4 - handle iframe, tab and button' , async ({ page, context }) => {
     await locatorHandling.openAdImage();
     await locatorHandling.clickSeleniumUnderDropdown();
-    // await locatorHandling.expectButtonWithTextAndColor('Submit', 'rgb(255, 0, 0)');
-    await expect(page.locator(complexPage.redButtonLocator)).toBeVisible();
+    await locatorHandling.expectButtonWithTextAndStyle();
   });
 });

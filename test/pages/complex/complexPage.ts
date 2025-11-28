@@ -11,8 +11,7 @@ export class ComplexPage {
   // readonly dropdownSeleniumCss = '.menu-block ul li a:has-text("Selenium")';
   readonly dropdownSeleniumXpath = this.dropdownMenuXpath + '//li[a[contains(text(), "Selenium")]]'
 
-  // readonly redButtonLocator = '//button[.//span/b[text()="Submit"]]';
-  readonly redButtonLocator = 'button[type="submit"]';
+  readonly redButtonLocator = '//button[.//text()="Submit"][contains(@style, "background: rgb(244, 53, 0)")]';
 
   constructor(readonly page: Page) {
     this.page = page;
@@ -35,4 +34,11 @@ export class ComplexPage {
     return this.page.locator(this.dropdownSeleniumXpath).first();
   }
 
+  getSeleniumHeaderLocator(): Locator {
+    return this.page.locator('h1', { hasText: 'Selenium Tutorial' });
+  }
+
+  getRedButtonLocator(): Locator {
+    return this.page.locator(this.redButtonLocator);
+  }
 }
