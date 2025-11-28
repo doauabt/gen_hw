@@ -1,4 +1,4 @@
-# gen_hw
+# Genesys homework 
 
 ## Tasks
 Preconditions: - Playwright - Javascript or TypeScript
@@ -73,7 +73,7 @@ This repository contains Playwright-based UI and API tests in TypeScript. Key fi
   - HTML report output: [playwright-report/index.html](playwright-report/index.html)
   - Raw results: [test-results/](test-results/)
 
-- Important test specs
+- Test specs
   - [test/testCases/uiTests/saucedemo.spec.ts](test/testCases/uiTests/saucedemo.spec.ts) — SauceDemo UI flows (login, add to cart, checkout).
   - [test/testCases/uiTests/complex.spec.ts](test/testCases/uiTests/complex.spec.ts) — iframe, tab and dropdown interactions.
   - [test/testCases/uiTests/editor.spec.ts](test/testCases/uiTests/editor.spec.ts) — rich-text editor formatting.
@@ -84,7 +84,7 @@ This repository contains Playwright-based UI and API tests in TypeScript. Key fi
     - [`LoginPage`](test/pages/saucedemo/loginPage.ts) — [test/pages/saucedemo/loginPage.ts](test/pages/saucedemo/loginPage.ts)
     - [`InventoryPage`](test/pages/saucedemo/inventoryPage.ts) — [test/pages/saucedemo/inventoryPage.ts](test/pages/saucedemo/inventoryPage.ts)
     - index: [test/pages/saucedemo/index.ts](test/pages/saucedemo/index.ts)
-  - Complex example
+  - Complex page handling
     - [`ComplexPage`](test/pages/complex/complexPage.ts) — [test/pages/complex/complexPage.ts](test/pages/complex/complexPage.ts)
   - Editor
     - [`EditorPage`](test/pages/editor/editorPage.ts) — [test/pages/editor/editorPage.ts](test/pages/editor/editorPage.ts)
