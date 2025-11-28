@@ -1,4 +1,6 @@
 # gen_hw
+
+## Tasks
 Preconditions: - Playwright - Javascript or TypeScript
 
 Case 1 – Automate Purchase Process 
@@ -56,3 +58,52 @@ Example:
 Leanne Graham | Sincere@april.biz 
 Ervin Howell | Shanna@melissa.tv 
 5. Verify the first email address contains @
+
+
+## Project overview & structure
+
+This repository contains Playwright-based UI and API tests in TypeScript. Key files and locations:
+
+- Configuration
+  - [playwright.config.ts](playwright.config.ts) — test runner configuration, projects, retries, trace settings.
+  - [package.json](package.json) — scripts and dependencies.
+
+- Test entry points
+  - All tests: [test/](test/)
+  - HTML report output: [playwright-report/index.html](playwright-report/index.html)
+  - Raw results: [test-results/](test-results/)
+
+- Important test specs
+  - [test/testCases/uiTests/saucedemo.spec.ts](test/testCases/uiTests/saucedemo.spec.ts) — SauceDemo UI flows (login, add to cart, checkout).
+  - [test/testCases/uiTests/complex.spec.ts](test/testCases/uiTests/complex.spec.ts) — iframe, tab and dropdown interactions.
+  - [test/testCases/uiTests/editor.spec.ts](test/testCases/uiTests/editor.spec.ts) — rich-text editor formatting.
+  - [test/testCases/apiTests/api.spec.ts](test/testCases/apiTests/api.spec.ts) — simple REST API example.
+
+- Page objects
+  - SauceDemo
+    - [`LoginPage`](test/pages/saucedemo/loginPage.ts) — [test/pages/saucedemo/loginPage.ts](test/pages/saucedemo/loginPage.ts)
+    - [`InventoryPage`](test/pages/saucedemo/inventoryPage.ts) — [test/pages/saucedemo/inventoryPage.ts](test/pages/saucedemo/inventoryPage.ts)
+    - index: [test/pages/saucedemo/index.ts](test/pages/saucedemo/index.ts)
+  - Complex example
+    - [`ComplexPage`](test/pages/complex/complexPage.ts) — [test/pages/complex/complexPage.ts](test/pages/complex/complexPage.ts)
+  - Editor
+    - [`EditorPage`](test/pages/editor/editorPage.ts) — [test/pages/editor/editorPage.ts](test/pages/editor/editorPage.ts)
+
+- Helper components
+  - SauceDemo helpers
+    - [`Shopping`](test/helpers/components/saucedemo/shopping.ts) — [test/helpers/components/saucedemo/shopping.ts](test/helpers/components/saucedemo/shopping.ts)
+    - [`GenericFunctions`](test/helpers/components/saucedemo/generic.ts) — [test/helpers/components/saucedemo/generic.ts](test/helpers/components/saucedemo/generic.ts)
+    - index: [test/helpers/components/saucedemo/index.ts](test/helpers/components/saucedemo/index.ts)
+  - Complex interactions
+    - [`LocatorHandling`](test/helpers/components/complex/locatorHandling.ts) — [test/helpers/components/complex/locatorHandling.ts](test/helpers/components/complex/locatorHandling.ts)
+  - Editor formatting
+    - [`Formatting`](test/helpers/components/editor/formatting.ts) — [test/helpers/components/editor/formatting.ts](test/helpers/components/editor/formatting.ts)
+
+- Test resources
+  - Credentials: [test/resources/credential.json](test/resources/credential.json)
+
+How to run
+- Install deps: npm ci
+- Run tests: npx playwright test
+- Open report: npx playwright show-report
+- Single spec: npx playwright test test/testCases/uiTests/saucedemo.spec.ts
