@@ -10,7 +10,7 @@ export class GenericFunctions {
     }
 
     async logout() {
-        this.openMenu();
+        await this.openMenu();
         await this.page.click(this.logoutButton)
     }
 

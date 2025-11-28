@@ -13,9 +13,7 @@ export class ComplexPage {
 
   readonly redButtonLocator = '//button[.//text()="Submit"][contains(@style, "background: rgb(244, 53, 0)")]';
 
-  constructor(readonly page: Page) {
-    this.page = page;
-  }
+  constructor(readonly page: Page) {}
 
   async openPage() {
     await this.page.goto(this.url, { waitUntil:'domcontentloaded' });

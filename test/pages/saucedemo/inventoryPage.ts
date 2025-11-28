@@ -6,7 +6,6 @@ export class InventoryPage {
     readonly cartBadge: Locator;
 
     constructor(protected readonly page: Page) {
-        this.page = page;
         this.cartBadge = this.page.locator('.shopping_cart_badge');
     }
 

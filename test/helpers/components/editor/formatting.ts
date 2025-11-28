@@ -1,4 +1,4 @@
-import { Page } from '@playwright/test';
+import { Page, expect } from '@playwright/test';
 
 const formatSelectors = {
     bold: 'button[data-cke-tooltip-text*="Bold"]',
@@ -17,7 +17,7 @@ export class Formatting {
     async clickFormatter(style: FormatKey) {
         const selector = this.selectors[style];
         const button = this.page.locator(selector);
-        await button.waitFor({ state: 'visible', timeout: 2000 });
+        await expect(button).toBeVisible();
         await button.click();
     }
 

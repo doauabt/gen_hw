@@ -38,6 +38,12 @@ test.describe('SauceDemo - login and shopping', () => {
     await expect(loginPage.page.getByText('Username is required')).toBeVisible();
 
     await loginPage.login('standard_user', data.password);
-    await genericFunctions.verifyFooterText(/2023.*Terms of Service/);
+    try {
+      await genericFunctions.verifyFooterText(/2023.*Terms of Service/);
+    }
+    catch (error) {
+      console.error('Footer text verification failed:', error);
+      throw error;
+    }
   });
 });

@@ -6,16 +6,14 @@ export class LocatorHandling {
   readonly iframeLocator;
   readonly dropdownLocator;
   readonly dropdownSelenium;
-  readonly selenuimHeader;
-  readonly redButton;
+  readonly seleniumHeader;
 
   constructor(protected readonly page: Page) {
     const complexPage = new ComplexPage(page);
     this.iframeLocator = complexPage.getIframeLocatorImg();
     this.dropdownLocator = complexPage.getDropdownLocator();
     this.dropdownSelenium = complexPage.getDropdownSeleniumLocator();
-    this.selenuimHeader = complexPage.getSeleniumHeaderLocator();
-    this.redButton = complexPage.getRedButtonLocator();
+    this.seleniumHeader = complexPage.getSeleniumHeaderLocator();
   }
   
   async openAdImage() {
@@ -40,8 +38,14 @@ export class LocatorHandling {
     await this.dropdownSelenium.click();
   }
 
-  async expectButtonWithTextAndStyle() {
-    await this.selenuimHeader.click();
-    await expect(this.redButton).toBeVisible();
+  async expectButtonWithTextAndStyle(text: string, style: string) {
+    await this.seleniumHeader.click();
+    const buttonWithTextAndStyle = `//button[.//text()="${text}"][contains(@style, "background: ${style}")]`;
+    try {
+      await expect(this.page.locator(buttonWithTextAndStyle)).toBeVisible();
+    }
+    catch (error) {
+      throw new Error(`Button with text "${text}" and style "${style}" is not visible`);
+    }
   }
 }

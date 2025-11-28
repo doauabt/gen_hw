@@ -1,9 +1,6 @@
-import { test, expect, request } from '@playwright/test';
-import * as steps from '../../helpers/steps'
+import { test } from '@playwright/test';
 import { ComplexPage } from '../../pages/complex/complexPage';
 import { LocatorHandling } from '../../helpers/components/complex/locatorHandling';
-
-
 
 test.describe('Complex UI tests', () => {
   let complexPage: ComplexPage;
@@ -15,9 +12,9 @@ test.describe('Complex UI tests', () => {
       await complexPage.openPage();
   });
 
-  test('task 4 - handle iframe, tab and button' , async ({ page, context }) => {
+  test('task 4 - handle iframe, tab and button', async ({ page }) => {
     await locatorHandling.openAdImage();
     await locatorHandling.clickSeleniumUnderDropdown();
-    await locatorHandling.expectButtonWithTextAndStyle();
+    await locatorHandling.expectButtonWithTextAndStyle('Join Now', 'rgb(244, 53, 0)');
   });
 });
